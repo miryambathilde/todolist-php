@@ -6,6 +6,6 @@ CREATE TABLE
     Tareas (
         id INT AUTO_INCREMENT PRIMARY KEY,
         titulo VARCHAR(255) NOT NULL,
-        descripcion TEXT,
+        descripcion VARCHAR(300),
         estado ENUM('pendiente', 'completada') NOT NULL DEFAULT 'pendiente'
     );
