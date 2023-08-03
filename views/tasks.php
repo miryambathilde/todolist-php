@@ -1,6 +1,6 @@
 <?php
 
-require_once 'assets/php/task.php';
+require_once '../assets/php/delete_task.php';
 
 $task = new Task();
 
@@ -26,7 +26,7 @@ $task = new Task();
 						<td><?php echo $tarea->estado; ?></td>
 						<td>
 							<button type="button" class="btn btn-primary">Editar</button>
-							<button type="button" class="btn btn-danger">Borrar</button>
+							<button type="button" class="btn btn-danger delete-task" data-task-id="<?php echo $tarea->id; ?>">Borrar</button>
 						</td>
 						<td>
 							<button type="button" class="btn btn-success">Completar tarea</button>

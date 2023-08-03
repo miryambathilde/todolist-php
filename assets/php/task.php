@@ -1,5 +1,25 @@
 <?php
-require_once 'config/db.php';
+
+echo "Script executed!";
+
+require_once __DIR__ . '/../../config/db.php';
+
+$redirectUrl =  'http://localhost/todolist/index.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	if (isset($_POST['title']) && isset($_POST['description'])) {
+		$task = new Task();
+		$title = $_POST['title'];
+		$description = $_POST['description'];
+		$task->create($title, $description);
+		// Optionally, you can redirect the user to a success page after creating the task.
+		header('Location: ' . $redirectUrl);
+		exit; // Always exit after redirecting to prevent further execution.
+	} else {
+		// Handle the case when title and description are not set.
+		echo "Title and description are required.";
+	}
+}
+
 
 class Task
 {
@@ -9,6 +29,10 @@ class Task
 	public function __construct()
 	{
 		$this->db = Database::connect();
+
+		if ($this->db->connect_error) {
+			die("Database connection failed: " . $this->db->connect_error);
+		}
 	}
 
 	// READ - GET ALL TASKS

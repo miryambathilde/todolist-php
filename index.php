@@ -1,12 +1,17 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // requiero los archivos que necesito usar en el index.php
 require_once 'config/db.php';
 require_once 'assets/php/task.php';
 require_once 'views/header.php';
-require_once 'views/main.php';
-
+require_once 'views/tasks.php';
+require_once 'views/new.php';
 require_once 'views/footer.php';
+require_once 'views/new.php';
 ?>
 
 <head>
@@ -31,7 +36,7 @@ require_once 'views/footer.php';
 	<!-- añadir ajax -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-	<script src="/assets/js/index.js"></script>
+	<script src="assets/js/index.js"></script>
 
 </body>
 
